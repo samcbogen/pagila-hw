@@ -4,5 +4,11 @@
  */
 
 
- select c.name, count(f.film_id) as sum from film join film_category using (film_id) join category using (category_id) join language using (language_id) where language.name = 'English' group by category.name;
-
+select c.name, count(f.film_id) as sum 
+from category c 
+inner join film_category fi on c.category_id = fi.category_id 
+inner join film f on f.film_id = fi.film_id 
+inner join language l on f.language_id = l.language_id 
+where l.name = 'English' 
+group by c.name 
+order by c.name;
