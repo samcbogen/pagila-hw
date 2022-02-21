@@ -5,5 +5,9 @@
  * Use tables film and language, and order the results alphabetically by film title.
  */
 
- select f.film_id, f.title, l.language_id, l.name from film f inner join language l on f.language_id = l.language_id group by f.film_id, f.title, l.language_id, l.name having f.title like "K%" OR f.title like "Q%" order by title;
-
+select f.film_id, f.title, l.language_id, l.name 
+from film f 
+inner join language l on f.language_id = l.language_id 
+group by f.film_id, f.title, l.language_id, l.name 
+having f.title like 'K%' or f.title like 'Q%' 
+order by title;
